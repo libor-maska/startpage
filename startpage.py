@@ -1,9 +1,9 @@
-"""Vypíše nejnovější zprávy z RSS feedů oblíbených webů."""
+"""Vypíše nejnovější zprávy z RSS feedů oblíbených webů do HTML."""
 
-import requests
-import feedparser
 import html
 from pathlib import Path
+import requests
+import feedparser
 
 VYSTUP = Path(__file__).parent / "startpage.html"
 ZDROJE = {
@@ -46,9 +46,10 @@ def main():
             continue
         sekce.append(html_sekce(web, zpravy))
 
-    stranka= f"""<!DOCTYPE html>
+    stranka  = f"""<!DOCTYPE html>
             <html lang="cs">
             <head>
+            <meta charset="utf-8>
             <title>Startpage</title>
             </head>
             <body>

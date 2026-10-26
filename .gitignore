@@ -12,3 +12,6 @@ config.toml
 
 # Manuál
 ZADANI.md
+
+# Generovaný HTML soubor
+startpage.html
