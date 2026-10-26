@@ -1,4 +1,5 @@
 """Vypíše nejnovější zprávy z RSS feedů oblíbených webů."""
+
 import requests
 import feedparser
 
@@ -7,7 +8,6 @@ ZDROJE = {
     "Seznam Zprávy": "https://www.seznamzpravy.cz/rss",
     "Sport.cz": "https://www.sport.cz/rss",
     "Rozhlas": "https://www.irozhlas.cz/rss/irozhlas",
-    "Rozbitý web": "https://www.novinky.cz/rss-neexistuje",
 }
 TIMEOUT = 10
 POCET_ZPRAV = 4
@@ -23,7 +23,6 @@ def stahni_zpravy(url):
 
 
 def main():
-    # Vypíše určený počet zpráv
     for web, url in ZDROJE.items():
         print(f"=== {web} ===")
         try:
@@ -32,6 +31,7 @@ def main():
             print(f"Nedostupné ({type(chyba).__name__})")
             print()
             continue
+        # Vypíše určený počet zpráv
         for clanek in zpravy[:POCET_ZPRAV]:
             print(clanek.title)
         print()
