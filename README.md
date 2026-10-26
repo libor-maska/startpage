@@ -1,0 +1,3 @@
+#startpage
+
+defaultní page pro prohlížeč, ubsahující oblíbené noviny, počasí, ...

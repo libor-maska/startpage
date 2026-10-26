@@ -1,0 +1,11 @@
+# Virtuální prostředí
+.venv/
+
+# Python cache
+__pycache__
+
+# Konfigurace s polohou
+config.toml
+
+# Manuál
+ZADANI.md
