@@ -2,6 +2,7 @@
 
 import html
 from pathlib import Path
+
 import requests
 import feedparser
 
@@ -15,8 +16,9 @@ ZDROJE = {
 TIMEOUT = 10
 POCET_ZPRAV = 4
 
+
 def html_sekce(web, zpravy):
-    """Vrátí HTML jedné sekce: nadpis webu a seznam odkazů na články"""
+    """Vrátí HTML jedné sekce: nadpis webu a seznam odkazů na články."""
     polozky = []
     for clanek in zpravy[:POCET_ZPRAV]:
         titulek = html.escape(clanek.title)
@@ -42,14 +44,15 @@ def main():
         try:
             zpravy = stahni_zpravy(url)
         except requests.RequestException as chyba:
-            sekce.append(f"<h2>{html.escape(web)}</h2>\n" f"<p>Nedostupné ({type(chyba).__name__})</p>")
+            sekce.append(f"<h2>{html.escape(web)}</h2>\n"
+                         f"<p>Nedostupné ({type(chyba).__name__})</p>")
             continue
         sekce.append(html_sekce(web, zpravy))
 
-    stranka  = f"""<!DOCTYPE html>
+    stranka = f"""<!DOCTYPE html>
             <html lang="cs">
             <head>
-            <meta charset="utf-8>
+            <meta charset="utf-8">
             <title>Startpage</title>
             </head>
             <body>
